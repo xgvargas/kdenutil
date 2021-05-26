@@ -1,8 +1,8 @@
 # kdenutil
 
-Include some useful functions to work with [kdenlive](kdenlive.org) video editor.
+Include some useful functions to work with [kdenlive](https://kdenlive.org) video editor.
 
-You may access this tool from [here]()
+You may access this tool from [here](https://xgvargas.github.io/kdenutil/)
 
 - Convert tracking to stabilization
 - Generate video shaking data

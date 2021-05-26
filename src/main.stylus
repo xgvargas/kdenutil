@@ -7,6 +7,9 @@ body
     max-width 700px
     background: #9ba7ad
 
+.ml2
+    margin-left: 10px
+
 .content
     background: #d0dbde
     padding: 10px
@@ -31,20 +34,32 @@ body
 .tool
     margin 20px 10px
 
+.info
+    color #777
+
+.important
+    color #f55
+
 .group
     margin 20px 10px
 
-    & > *
-        display: inline
+.radiogroup
+    margin-bottom: 10px
+
+//     & > *
+//         display: inline
 
 input
-    width 50px
+    width 60px
 
-.sub-title
-    font-weight bold
-    display: block
-    margin-bottom: 5px
-    font-size: 1.2rem;
+textarea
+    width 100%
 
-button
-    display block
+// .sub-title
+//     font-weight bold
+//     display: block
+//     margin-bottom: 5px
+//     font-size: 1.2rem;
+
+// button
+//     display block

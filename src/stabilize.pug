@@ -1,29 +1,30 @@
 #stabilize.tool
   .tool-title Stabilize
-  .info With this function you can convert the points tracked with kdenlive functions Motion-tracker or Auto-mask and generate the invert movement this way you can use the point to stabilize the tracked point instead of following it. Yeah... I need to explain this another way...
-  .info Better than that, check out this #[a(href="https://ferrolho.github.io/blog/2020-08-09/stabilizing-a-video-subject-in-kdenlive" target="_blank") Ferrolho's blog] entry and notice how this function was 99.7% inspirited by his work. While in there also notice how less lazy he is at explaining how to use the function. Amazing!!
+  .info With this function you can convert the points tracked with kdenlive functions Motion-tracker or Auto-mask and generate the inverted movement, this way you can use the new points to stabilize the tracked point instead of following it. Yeah... I need to explain this another way...
+  .info Better than that, check out this #[a(href="https://ferrolho.github.io/blog/2020-08-09/stabilizing-a-video-subject-in-kdenlive" target="_blank") Ferrolho's blog] entry and notice how this function was 97.12% inspired by his work. While in there also notice how less lazy he is at explaining how to use the function. Amazing!!
   .group
-    .sub-title Frame size
-    .name Width
-    input#stabilizeWidth(value="1080")
-    .name Height
-    input#stabilizeHeight(value="720")
-  .group
-    .sub-title Offset
-    .name X
-    input#stabilizeX(value="0")
-    .name Y
-    input#stabilizeY(value="0")
-  .group
-    .sub-title Data
-    .name Type of tracking
-    div
-      input#stabilizeMotion(type="radio" name="sourceType" value="motion" checked)
-      label(for="stabilizeMotion") Motion-tracker
-    div
-      input#stabilizeMask(type="radio" name="sourceType" value="mask")
-      label(for="stabilizeMask") Auto-mask
-    .name tracked points
-    textarea#stabilizePoints(rows="6" cols="50" placeholder="Paste original points here...")
+    .radiogroup
+      | Destination
+      div
+        input#stabilizeKeep(type="radio" name="location" value="keep" checked)
+        label(for="stabilizeKeep") Keep fixed to position at frame 1
+      div
+        input#stabilizeMove(type="radio" name="location" value="move")
+        label(for="stabilizeMove") Move tracked point to coordinate
+        span.name.ml2 X
+        input#stabilizeX(value="0")
+        span.name.ml2 Y
+        input#stabilizeY(value="0")
+    .radiogroup
+      | Type of tracking used
+      div
+        input#stabilizeMotion(type="radio" name="sourceType" value="motion" checked)
+        label(for="stabilizeMotion") Motion-tracker
+      div
+        input#stabilizeMask(type="radio" name="sourceType" value="mask")
+        label(for="stabilizeMask") Auto-mask
+    textarea#stabilizePoints(rows="8" placeholder="Paste original points here...")
 
-    button(onclick="stabilizeRun()") Process
+    div
+      button(onclick="stabilizeRun()") Process
+      snap.important.ml2 Result will be copied to your clipboard after processing
