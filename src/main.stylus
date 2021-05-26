@@ -5,13 +5,13 @@ html
 body
     margin auto
     max-width 700px
-    background: #9ba7ad
+    background: #9ca6ab
 
 .ml2
     margin-left: 10px
 
 .content
-    background: #d0dbde
+    background: #f5f5f5
     padding: 10px
     margin: 15px
 

@@ -10,19 +10,11 @@
         label(for="stabilizeKeep") Keep fixed to position at frame 1
       div
         input#stabilizeMove(type="radio" name="location" value="move")
-        label(for="stabilizeMove") Move tracked point to coordinate
+        label(for="stabilizeMove") Move tracked center point to coordinate
         span.name.ml2 X
         input#stabilizeX(value="0")
         span.name.ml2 Y
         input#stabilizeY(value="0")
-    .radiogroup
-      | Type of tracking used
-      div
-        input#stabilizeMotion(type="radio" name="sourceType" value="motion" checked)
-        label(for="stabilizeMotion") Motion-tracker
-      div
-        input#stabilizeMask(type="radio" name="sourceType" value="mask")
-        label(for="stabilizeMask") Auto-mask
     textarea#stabilizePoints(rows="8" placeholder="Paste original points here...")
 
     div
