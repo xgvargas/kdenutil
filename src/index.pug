@@ -1,0 +1,33 @@
+<!doctype html>
+html
+  head
+    title kdenutil - v#{version}
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="kdenutil")
+    meta(name="robots" content="index, nofollow")
+    meta(name="author" content="xgvargas@gmail.com")
+    link(rel="author" type="text/plain" href="humans.txt")
+    //- link(rel="shortcut icon" href="favicon.ico")
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+  body
+    .content
+      .big-title
+        | kdenutil
+        small v#{version}
+
+      .info A few simple function to help working with #[a(href="https://kdenlive.org" target="_blank") kdenlive] video editor
+
+      include ./stabilize.pug
+      include ./shake.pug
+
+      .tool
+        .tool-title Any idea?
+        .info Ideas are welcome. You can post it #[a(href="" target="_blank") here].
+
+      if production
+        script(src="main.js")
+      else
+        script(src="stabilize.js")
+        script(src="shake.js")

@@ -1,0 +1,12 @@
+{
+  "no_this": {"level": "error"},
+  "space_operators": {"level": "warn"},
+  "spacing_after_comma": {"level": "warn"},
+  "no_trailing_whitespace": {"level": "ignore"},
+  "arrow_spacing": {"level": "warn"},
+  "cyclomatic_complexity": {"level": "ignore"},
+  "missing_fat_arrows": {"level": "ignore"},
+  "newlines_after_classes": {"level": "warn", "value": 2 },
+  "indentation": {"level": "error", "value": 4 },
+  "max_line_length": {"level": "warn", "value": 120 }
+}

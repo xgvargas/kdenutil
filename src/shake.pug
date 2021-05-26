@@ -1,0 +1,24 @@
+#shake.tool
+  .tool-title Shaker
+  .info This will create some fake hand shake movement
+
+  .name Template
+  select#shakerTemplate(value="normal" onchange="shakerSetTemplate()")
+    each o in ['Normal', 'Parkinson', 'Light']
+      option(value=o) #{o}
+
+  .name Parameters
+  - var parameters = ['Peak', 'Freq', 'Noise']
+  table
+    tr
+      th
+      each p in parameters
+        td #{p}
+    each r in [1, 2, 3]
+      tr
+        td #{r}
+        each p in parameters
+          td
+            input(id=`shaker${r}_${p}`)
+
+  button(onclick="shakerRun()") Process

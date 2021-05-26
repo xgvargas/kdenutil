@@ -1,0 +1,42 @@
+{
+  "name": "kdenutil",
+  "version": "0.1.0",
+  "description": "kdenutil - kdenlive tools",
+  "main": "./www/index.html",
+  "author": "Gustavo Vargas <xgvargas@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently -k -p '[{name}]' -n 'Pug,Styl,Coffee' -c 'bgMagenta.bold,bgRed.bold,bgGreen.bold' 'yarn run pug -O '{version:\\\\\\\"$(jq .version package.json)\\\\\\\"}' -wP src/index.pug -o www' 'yarn run stylus -w -o www src/*.stylus' 'yarn run coffee -cwo www src/*.coffee'",
+    "build": "yarn run pug -O \"{production:1, version:'$(jq -r .version package.json)'}\" src/index.pug -o page && yarn run stylus -c -o page src/*.stylus && yarn -s run coffee -cto page src/*.coffee && yarn -s run uglifyjs page/*.js > page/main.js",
+    "clean": "rm -rf page www",
+    "deploy": "bash script/gitlab-page.sh deploy"
+  },
+  "old-scripts": {
+    "lang:dev": "cd src/i18n && while :; do inotifywait -qe close_write *.yml; coffee ../../scripts/lang.coffee ./ --validate --add --spread --build; done"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "coffeescript": "^2.4.1",
+    "pug": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6",
+    "stylus": "^0.54.7",
+    "uglify-es": "^3.3.9"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "electron >= 6"
+            ]
+          }
+        }
+      ]
+    ]
+  }
+}
