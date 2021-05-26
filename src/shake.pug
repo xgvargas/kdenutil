@@ -2,23 +2,27 @@
   .tool-title Shaker
   .info This will create some fake hand shake movement
 
-  .name Template
-  select#shakerTemplate(value="normal" onchange="shakerSetTemplate()")
-    each o in ['Normal', 'Parkinson', 'Light']
-      option(value=o) #{o}
+  .group
+    .mb10
+      span.name Template
+      select#shakerTemplate(value="Normal" onchange="shakerSetTemplate()")
+        each o in ['Light', 'Normal', 'Parkinson']
+          option(value=o) #{o}
 
-  .name Parameters
-  - var parameters = ['Peak', 'Freq', 'Noise']
-  table
-    tr
-      th
-      each p in parameters
-        td #{p}
-    each r in [1, 2, 3]
+    - var parameters = ['Peak', 'Freq', 'Noise']
+    table.mb10
       tr
-        td #{r}
+        th
         each p in parameters
-          td
-            input(id=`shaker${r}_${p}`)
+          td #{p}
+      each r in [1, 2, 3]
+        tr
+          td #{r}
+          each p in parameters
+            td
+              input(id=`shaker${r}_${p}`)
 
-  button(onclick="shakerRun()") Process
+    .important sorry..... work in progress
+    //- div
+      button(onclick="shakerRun()") Process
+      snap.important.ml10 Result will be copied to your clipboard after processing

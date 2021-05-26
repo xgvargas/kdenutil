@@ -1,0 +1,30 @@
+#linear.tool
+  .tool-title Linear manipulation
+  .info This tool will provide some linear manipulation of tracked coordinates. You can move the whole group of points with by an X and Y offset. You can change its amplitude in both axis towards its center by adjusting its gain. You can also flip the coordinates in X and Y. And finally you can revert the sequence of points.
+  .group
+    .mb10
+      | Operation
+      div
+        input#linearFlipX(type="checkbox")
+        label(for="linearFlipX") Flip X
+      div
+        input#linearFlipY(type="checkbox")
+        label(for="linearFlipY") Flip Y
+      div
+        input#linearReverse(type="checkbox")
+        label(for="linearReverse") Reverse
+    .mb10
+      span.name Gain X
+      input#linearGainX(value="1")
+      span.ml10.name Gain Y
+      input#linearGainY(value="1")
+    .mb10
+      span.name Offset X
+      input#linearOffsetX(value="0")
+      span.ml10.name Offset Y
+      input#linearOffsetY(value="0")
+    textarea#linearPoints(rows="8" placeholder="Paste original points here...")
+
+    div
+      button(onclick="linearRun()") Process
+      snap.important.ml10 Result will be copied to your clipboard after processing

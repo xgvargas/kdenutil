@@ -4,6 +4,7 @@ Include some useful functions to work with [kdenlive](https://kdenlive.org) vide
 
 You may access this tool from [here](https://xgvargas.github.io/kdenutil/)
 
-- Convert tracking to stabilization
+- some linear manipulation
+- Convert tracking for stabilization usage
 - Generate video shaking data
 - _That's all I got so far. I do accept more ideas :)_

@@ -19,6 +19,7 @@ html
 
       .info A few simple functions to help working with #[a(href="https://kdenlive.org" target="_blank") kdenlive] video editor
 
+      include ./linear.pug
       include ./stabilize.pug
       include ./shake.pug
 
@@ -29,5 +30,6 @@ html
       if production
         script(src="main.js")
       else
+        script(src="linear.js")
         script(src="stabilize.js")
         script(src="shake.js")

@@ -3,7 +3,7 @@
   .info With this function you can convert the points tracked with kdenlive functions Motion-tracker or Auto-mask and generate the inverted movement, this way you can use the new points to stabilize the tracked point instead of following it. Yeah... I need to explain this another way...
   .info Better than that, check out this #[a(href="https://ferrolho.github.io/blog/2020-08-09/stabilizing-a-video-subject-in-kdenlive" target="_blank") Ferrolho's blog] entry and notice how this function was 97.12% inspired by his work. While in there also notice how less lazy he is at explaining how to use the function. Amazing!!
   .group
-    .radiogroup
+    .mb10
       | Destination
       div
         input#stabilizeKeep(type="radio" name="location" value="keep" checked)
@@ -11,12 +11,12 @@
       div
         input#stabilizeMove(type="radio" name="location" value="move")
         label(for="stabilizeMove") Move tracked center point to coordinate
-        span.name.ml2 X
+        span.name.ml10 X
         input#stabilizeX(value="0")
-        span.name.ml2 Y
+        span.name.ml10 Y
         input#stabilizeY(value="0")
     textarea#stabilizePoints(rows="8" placeholder="Paste original points here...")
 
     div
       button(onclick="stabilizeRun()") Process
-      snap.important.ml2 Result will be copied to your clipboard after processing
+      snap.important.ml10 Result will be copied to your clipboard after processing

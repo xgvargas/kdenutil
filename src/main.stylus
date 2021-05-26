@@ -7,8 +7,11 @@ body
     max-width 700px
     background: #9ca6ab
 
-.ml2
+.ml10
     margin-left: 10px
+
+.mb10
+    margin-bottom: 10px
 
 .content
     background: #f5f5f5
@@ -43,23 +46,8 @@ body
 .group
     margin 20px 10px
 
-.radiogroup
-    margin-bottom: 10px
-
-//     & > *
-//         display: inline
-
 input
     width 60px
 
 textarea
     width 100%
-
-// .sub-title
-//     font-weight bold
-//     display: block
-//     margin-bottom: 5px
-//     font-size: 1.2rem;
-
-// button
-//     display block
