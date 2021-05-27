@@ -10,7 +10,7 @@
           option(value=o) #{o}
 
     - var parameters = ['Peak', 'Freq', 'Noise']
-    table.mb10
+    table.mb10.input-table
       tr
         th
         each p in parameters
@@ -22,7 +22,11 @@
             td
               input(id=`shake${r}_${p}`)
 
-    .important sorry..... work in progress
-    //- div
+    .mb10
+      textarea#linearPointsOut(readonly rows="3" placeholder="Output")
+
+    div
       button(onclick="shakeRun()") Process
-      snap.important.ml10 Result will be copied to your clipboard after processing
+      span.ml10
+        input#shakeCopy(type="checkbox" checked)
+        label(for="shakeCopy") Copy result to clipboard

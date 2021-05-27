@@ -4,12 +4,15 @@ window.stabilizeRun = ->
     keep =            document.getElementById('stabilizeKeep').checked
     move =            document.getElementById('stabilizeMove').checked
     textarea =        document.getElementById('stabilizePoints')
+    textareaOut =     document.getElementById('stabilizePointsOut')
+    copy =            document.getElementById('stabilizeCopy').checked
 
     console.log 'posX', posX
     console.log 'posY', posY
     console.log 'keep', keep
     console.log 'move', move
     console.log 'original', textarea.value
+    console.log 'copy', copy
 
     result = []
     centerX = centerY = null
@@ -41,8 +44,10 @@ window.stabilizeRun = ->
 
         result.push "#{m[1]}~=#{centerX - m[2]} #{centerY - m[3]}"
 
-    textarea.value = result.join ';'
-    textarea.select()
-    document.execCommand 'copy'
+    res = result.join ';'
+
+    textareaOut.value = res
+
+    copyToClipboard res if copy
 
     return

@@ -1,30 +1,36 @@
+mixin select(id, label, check)
+  .ml10
+    input(id=id type="checkbox" checked=check)
+    label(for=id)= label
+
+mixin input(id, label, def, className)
+  span.name(class=[className])= label
+  input.w60(id=id value=def)
+
 #linear.tool
   .tool-title Linear manipulation
   .info This tool will provide some linear manipulation of tracked coordinates. You can move the whole group of points with by an X and Y offset. You can change its amplitude in both axis towards its center by adjusting its gain. You can also flip the coordinates in X and Y. And finally you can revert the sequence of points.
   .group
     .mb10
       | Operation
-      div
-        input#linearFlipX(type="checkbox")
-        label(for="linearFlipX") Flip X
-      div
-        input#linearFlipY(type="checkbox")
-        label(for="linearFlipY") Flip Y
-      div
-        input#linearReverse(type="checkbox")
-        label(for="linearReverse") Reverse
+      +select('linearFlipX', 'Flip X')
+      +select('linearFlipY', 'Flip Y')
+      +select('linearReverse', 'Reverse')
     .mb10
-      span.name Gain X
-      input#linearGainX(value="1")
-      span.ml10.name Gain Y
-      input#linearGainY(value="1")
+      +input('linearGainTime', 'Gain Time', 1)
+      +input('linearGainX',    'Gain X',    1, 'ml10')
+      +input('linearGainY',    'Gain Y',    1, 'ml10')
     .mb10
-      span.name Offset X
-      input#linearOffsetX(value="0")
-      span.ml10.name Offset Y
-      input#linearOffsetY(value="0")
-    textarea#linearPoints(rows="8" placeholder="Paste original points here...")
+      +input('linearOffsetTime', 'Offset Time', 0)
+      +input('linearOffsetX',    'Offset X',    0, 'ml10')
+      +input('linearOffsetY',    'Offset Y',    0, 'ml10')
+
+    .flex.mb10
+      textarea#linearPoints(rows="3" placeholder="Paste original points here...")
+      textarea#linearPointsOut(readonly rows="3" placeholder="Output")
 
     div
       button(onclick="linearRun()") Process
-      snap.important.ml10 Result will be copied to your clipboard after processing
+      span.ml10
+        input#linearCopy(type="checkbox" checked)
+        label(for="linearCopy") Copy result to clipboard

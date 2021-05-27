@@ -1,4 +1,4 @@
-<!doctype html>
+doctype html
 html
   head
     title kdenutil - v#{version}
@@ -19,17 +19,20 @@ html
 
       .info A few simple functions to help working with #[a(href="https://kdenlive.org" target="_blank") kdenlive] video editor
 
-      include ./linear.pug
-      include ./stabilize.pug
+      //- include ./linear.pug
+      //- include ./stabilize.pug
       include ./shake.pug
 
       .tool
         .tool-title Any idea?
         .info Ideas are welcome. You can post it #[a(href="https://github.com/xgvargas/kdenutil/issues" target="_blank") here].
 
+      input#libAuxInput(type="hidden")
+
       if production
         script(src="main.js")
       else
+        script(src="lib.js")
         script(src="linear.js")
         script(src="stabilize.js")
         script(src="shake.js")

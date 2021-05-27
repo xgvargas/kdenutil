@@ -5,18 +5,23 @@
   .group
     .mb10
       | Destination
-      div
+      .ml10
         input#stabilizeKeep(type="radio" name="location" value="keep" checked)
         label(for="stabilizeKeep") Keep fixed to position at frame 1
-      div
+      .ml10
         input#stabilizeMove(type="radio" name="location" value="move")
         label(for="stabilizeMove") Move tracked center point to coordinate
         span.name.ml10 X
-        input#stabilizeX(value="0")
+        input.w60#stabilizeX(value="0")
         span.name.ml10 Y
-        input#stabilizeY(value="0")
-    textarea#stabilizePoints(rows="8" placeholder="Paste original points here...")
+        input.w60#stabilizeY(value="0")
+
+    .flex.mb10
+      textarea#stabilizePoints(rows="3" placeholder="Paste original points here...")
+      textarea#stabilizePointsOut(readonly rows="3" placeholder="Output")
 
     div
       button(onclick="stabilizeRun()") Process
-      snap.important.ml10 Result will be copied to your clipboard after processing
+      span.ml10
+        input#stabilizeCopy(type="checkbox" checked)
+        label(for="stabilizeCopy") Copy result to clipboard
