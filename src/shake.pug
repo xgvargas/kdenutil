@@ -5,7 +5,7 @@
   .group
     .mb10
       span.name Template
-      select#shakerTemplate(value="Normal" onchange="shakerSetTemplate()")
+      select#shakeTemplate(value="Normal" onchange="shakeSetTemplate()")
         each o in ['Light', 'Normal', 'Parkinson']
           option(value=o) #{o}
 
@@ -20,9 +20,9 @@
           td #{r}
           each p in parameters
             td
-              input(id=`shaker${r}_${p}`)
+              input(id=`shake${r}_${p}`)
 
     .important sorry..... work in progress
     //- div
-      button(onclick="shakerRun()") Process
+      button(onclick="shakeRun()") Process
       snap.important.ml10 Result will be copied to your clipboard after processing

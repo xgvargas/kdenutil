@@ -13,16 +13,16 @@ templates = {
         {Peak: 2, Freq: 1, Noise: .2}]
 }
 
-window.shakerSetTemplate = ->
-    type = document.getElementById('shakerTemplate').value
-    console.log 'shaker, setting:', type
+window.shakeSetTemplate = ->
+    type = document.getElementById('shakeTemplate').value
+    console.log 'shake, setting:', type
     for i in [0...3]
         for p, v of templates[type][i]
-            document.getElementById("shaker#{i + 1}_#{p}").value = v
+            document.getElementById("shake#{i + 1}_#{p}").value = v
 
 
-window.shakerSetTemplate()
+window.shakeSetTemplate()
 
 
-window.shakerRun = ->
+window.shakeRun = ->
     console.log "funciona!!!!"
