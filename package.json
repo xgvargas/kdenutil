@@ -12,7 +12,7 @@
         "dev:stylus": "yarn run stylus -w -o www src/*.stylus",
         "dev:coffee": "yarn run coffee -cwo www src/*.coffee",
         "dev:server": "sleep 5s && reload -b -d www",
-        "build": "run-s build:*",
+        "build": "run-s build:* && cp stopwatch/*.mp4 page",
         "build:pug": "yarn run pug -O \"{production:1, version:'$npm_package_version'}\" src/index.pug -o page",
         "build:stylus": "yarn run stylus -c -o page src/*.stylus",
         "build:coffee": "yarn -s run coffee -cto page src/*.coffee && yarn -s run uglifyjs page/*.js > page/main.js",

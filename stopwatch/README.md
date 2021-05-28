@@ -34,4 +34,4 @@ Remember that you will edit this video to overlay it on top of your original vid
 
 But **you MUST generate different video for different final framerate**.
 
-If you are working with fps 29.97 then add a stopwatch with this specific framerate. if your video will be 30fps then used a 30fps stopwatch, came on, you got it right?
+If you are working on a project with 29.97fps then add a stopwatch with specifically 29.97fps framerate. If your video will be 30fps then used a 30fps stopwatch, came on, you got it right?

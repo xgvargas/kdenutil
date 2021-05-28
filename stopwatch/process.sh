@@ -16,7 +16,7 @@
 
 
 
-seconds=$(bc <<< "scale=0; 60*1")
+seconds=60
 fps=30
 full=false
 font="ubuntu mono"
