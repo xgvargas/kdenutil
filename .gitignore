@@ -3,3 +3,5 @@ yarn-error.log
 /www
 /page/*.js
 !/page/main.js
+stopwatch/*.mp4
+stopwatch/_tmp*
