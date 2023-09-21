@@ -12,7 +12,7 @@ You must be capable of running a `bash` script and also **must** have in your pa
 
 After script edition simple run `bash process.sh` and *wait... wait... wait...*
 
-Some standard stopwatches were already generated and made available [here](https://xgvargas.github.io/kdenutil/)
+Some standard stopwatches were already generated and made available [here](https://xgvargas.github.io/kdenutil/).
 
 ## Variables
 

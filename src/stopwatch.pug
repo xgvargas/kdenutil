@@ -1,27 +1,72 @@
 
 #stopwatch.tool
   .tool-title Stopwatches
-  .info Kdenlive can use MLT generators to create up counting clocks. But they have seconds resolution only. This is not a tool but a collection of some precisely generated videos for specific framerate that count with milliseconds resolution. They are black background with white digits so is easy to set as needed over your video.
+  .info Kdenlive can use MLT generators to create up counting clocks. But they have seconds resolution only. We deserve more!
+  .info This is not a tool but a collection of some precisely generated videos for specific framerate that count with milliseconds resolution. They are black background with white digits so is easy to set as needed over your video with compositions and/or the tint effect.
   .group
     .mb10
-      table
+      table.stopwatches-table
         tr
           th FPS
           th Font
           th Length
-          th Sample
-          th Video
+          th Video Sample & download link
+
+        mixin stopwatch(fps, font, length, video)
+          tr
+            td= fps
+            td= font
+            td= length
+            td
+              a(href=`./${video}`  download target="_blank")
+                img(src=`sample-${video.slice(0, -4)}.png`)
+
+        +stopwatch('25', 'Ubuntu Mono', '30 secs', 'stopwatch-25fps-30secs-ubuntu_mono.mp4')
+
+        tr
+          td 25
+          td Ubuntu Mono
+          td 30 secs
+          td
+            a(href="stopwatch-25fps-30secs-ubuntu_mono.mp4" download target="_blank")
+              img(src="sample-stopwatch-25fps-30secs-ubuntu_mono.png")
+        tr
+          td 25
+          td Ubuntu Mono
+          td 30 secs
+          td
+            a(href="./stopwatch-25fps-30secs-ubuntu_mono.mp4" download="meleca.mp4" target="_blank")
+              img(src="sample-stopwatch-25fps-30secs-ubuntu_mono.png")
+        tr
+          td 25
+          td Ubuntu Mono
+          td 30 secs
+          td
+            a(href="./stopwatch-25fps-30secs-ubuntu_mono.mp4" download)
+              img(src="sample-stopwatch-25fps-30secs-ubuntu_mono.png")
+        tr
+          td 25
+          td Ubuntu Mono
+          td 30 secs
+          td
+            a(download="./stopwatch-25fps-30secs-ubuntu_mono.mp4")
+              img(src="sample-stopwatch-25fps-30secs-ubuntu_mono.png")
         tr
           td 29.97
           td Ubuntu Mono
           td 20 secs
           td
-          td: a(href="stopwatch-29_97fps-20secs-ubuntu_mono.mp4") stopwatch-29_97fps-20secs-ubuntu_mono.mp4
+            a(href="stopwatch-29_97fps-20secs-ubuntu_mono.mp4" download)
+              img(src="sample-stopwatch-29_97fps-20secs-ubuntu_mono.png")
         tr
           td 30
           td Ubuntu Mono
           td 1 minute
           td
-          td: a(href="stopwatch-30fps-60secs-ubuntu_mono.mp4") stopwatch-30fps-60secs-ubuntu_mono.mp4
+            a(href="stopwatch-30fps-60secs-ubuntu_mono.mp4" download)
+              img(src="sample-stopwatch-30fps-60secs-ubuntu_mono.png")
 
-  .info check #[a(href="") this] repository to check how they were created. I'll tell in advance that this was stupid. But works.
+
+
+
+  .info check #[a(href="https://github.com/xgvargas/kdenutil/tree/main/stopwatch" target="_blank") this repository] to check how they were created. I'll tell in advance that this was stupid. But works.

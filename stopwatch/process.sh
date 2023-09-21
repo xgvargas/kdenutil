@@ -16,8 +16,8 @@
 
 
 
-seconds=60
-fps=30
+seconds=30
+fps=25
 full=false
 font="ubuntu mono"
 
@@ -45,9 +45,9 @@ for f in $(seq $start $end); do
         if (( h > 0 )); then
             txt="$(printf '%d' $h):$(printf '%02d' $m):$(printf '%02d' $s).$(printf '%03d' $ms)"
         elif (( m > 0 )); then
-                                txt="$(printf '%d' $m):$(printf '%02d' $s).$(printf '%03d' $ms)"
+            txt="$(printf '%d' $m):$(printf '%02d' $s).$(printf '%03d' $ms)"
         else
-                                                    txt="$(printf '%d' $s).$(printf '%03d' $ms)"
+            txt="$(printf '%d' $s).$(printf '%03d' $ms)"
         fi
     fi
 
@@ -58,6 +58,8 @@ for f in $(seq $start $end); do
     inkscape -o /tmp/frame-$(printf '%05d' $f).png _tmp.svg &> /dev/null
 done
 
-ffmpeg -framerate $fps -i /tmp/frame-%05d.png "stopwatch-${fps//./_}fps-${seconds}secs-${font// /_}".mp4
+ffmpeg -framerate $fps -i /tmp/frame-%05d.png "stopwatch-${fps//./_}fps-${seconds}secs-${font// /_}.mp4"
+
+cp $(ls /tmp/frame-*.png | shuf -n1) "sample-stopwatch-${fps//./_}fps-${seconds}secs-${font// /_}.png"
 
 rm /tmp/frame-*.png
